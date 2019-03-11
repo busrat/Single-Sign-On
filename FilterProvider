@@ -1,0 +1,18 @@
+package com.havelsan.auth.app;
+
+import com.havelsan.filter.AuthenticationFilter;
+import com.havelsan.filter.Secured;
+
+import javax.annotation.Priority;
+import javax.ws.rs.Priorities;
+import javax.ws.rs.ext.Provider;
+@Secured
+@Provider
+@Priority(Priorities.AUTHENTICATION)
+public class FilterProvider extends AuthenticationFilter {
+    public FilterProvider(){
+        this.authenticator=new FilterAuthenticator();
+    }
+
+
+}
