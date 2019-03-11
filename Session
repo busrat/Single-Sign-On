@@ -1,0 +1,49 @@
+package com.havelsan.model;
+
+import java.util.Objects;
+
+public class Session {
+    String token;
+    String userName;
+
+    public Session(){
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    @Override
+    public String toString() {
+        return "Session{" +
+                "token='" + token + '\'' +
+                ", userName='" + userName + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Session session = (Session) o;
+        return Objects.equals(token, session.token) &&
+                Objects.equals(userName, session.userName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(token, userName);
+    }
+}
