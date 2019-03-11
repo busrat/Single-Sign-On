@@ -1,0 +1,43 @@
+                                                AUTHORIZATION: {
+                                                  toString () {
+                                                    return `Bearer ${token}`
+                                                  }
+                                                }
+                                              }
+                                            });
+
+                                                 var response = ax.get(apiBaseUrl+'birthday/findMyBirthday')
+                                                            .then((result) => {
+                                                            console.log(result);
+                                                            this.setState({birthday: result.data});
+                                                            //console.log(this);
+                                                            })
+                                                            .catch((error) => {
+
+                                                                this.setState({birthday: "Please login to see birthday"});
+                                                            });
+                        }
+                        else{
+                        window.location = "http://localhost/sso";
+                        }
+
+}
+
+    render(){
+      const { classes } = this.props;
+      return (
+        <React.Fragment>
+          <CssBaseline />
+          <div align="center"><h2><em>{this.state.birthday}</em></h2></div>
+        </React.Fragment>
+      );
+    }
+ }
+
+SignIn.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default SignIn;
+
+
