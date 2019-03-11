@@ -1,0 +1,15 @@
+package com.havelsan.auth.app;
+
+import java.security.SecureRandom;
+
+public class Tokenizer {
+
+    protected static SecureRandom random = new SecureRandom();
+
+    public synchronized String generateKey() {
+        long longToken = Math.abs( random.nextLong() );
+        String random = Long.toString( longToken, 16 );
+        return random;
+    }
+
+}
